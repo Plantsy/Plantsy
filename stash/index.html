@@ -39,7 +39,8 @@ var plantArray = [];
  var queryURL = `https://plantsdb.xyz/search?limit=100&Common_name=${plantName}`;
     $.ajax({
       url: queryURL,
-      method: "GET"
+      method: "GET",
+      
     }).then(function (response) {
      
         for (i=0; i<response.data.length; i++) {
