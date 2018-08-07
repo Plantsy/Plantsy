@@ -5,6 +5,7 @@ h1 {
 
 h2 {
 	text-align: center;
+	color: white;
 }
 
 .btn-primary {
@@ -21,7 +22,7 @@ body {
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
 	background-size:  cover;
-	background-color: #000000;  
+	background-color: #000000;
 }
 
 div, body{

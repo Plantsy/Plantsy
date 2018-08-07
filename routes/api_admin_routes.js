@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/admin", function(req, res) {
-		console.log(db.Plant);
+		
 		db.Plant.findAll({}).then(function(plant) {
 			res.render("admin", {plant: plant});
 		});
@@ -20,8 +20,7 @@ module.exports = function(app) {
 	});
 
 	app.post("/admin/plant/create", function(req, res) {
-		console.log(req.body);
-
+		
 		db.Plant.create(req.body).then(function(data){
 			res.json(data);
 		});
@@ -33,12 +32,15 @@ module.exports = function(app) {
 				id: req.params.id
 			}
 		}).then(function(data) {
-			console.log(data);
+
 			res.json(data);
 		});
 	});
 
-	app.put("admin/edit/:id", function(req, res) {
+	app.put("/admin/edit/:id", function(req, res) {
+		console.log("---------------");
+		console.log(req.body);
+		console.log(req.params.id);
 		db.Plant.update(req.body, {
 			where: {
 				id: req.params.id
