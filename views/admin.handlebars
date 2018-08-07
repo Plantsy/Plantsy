@@ -1,0 +1,11 @@
+<h1>Hello Admin</h1>
+<button id="plantBtn">Add Plant</button>
+<div class="hold_plants">
+    {{#each plant}}
+    <h2 class="plant_click" data-id={{id}}>{{name}}</h2><button class="deleteBtn" data-id={{id}}>X</button>
+    {{/each}}
+</div>
+<div class="selected"></div>
+
+{{!-- If you want, you can put a form here. Name, Description, Instructions. give them each an id --}} {{!-- id="Name", id="Discription",
+id="Instructions"--}}
