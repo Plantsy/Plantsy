@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var cors = require('cors');
 
 
 var app = express();
@@ -9,6 +10,8 @@ var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
 
+//cors stuff to enable it
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));

@@ -113,7 +113,7 @@ var plantArray = [];
   }
 
   function createQr(plantArray){
-    var queryURL= "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
+    var queryURL= "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+plantArray+"";
       $.ajax({
    
       url: queryURL,
