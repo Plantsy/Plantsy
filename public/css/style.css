@@ -1,10 +1,15 @@
 h1 {
     text-align: center;
 	font-family: 'Merienda', cursive;
-	color: white;
+	color: rgb(84, 173, 32);
 }
 
 h2 {
+	color: white;
+	text-align: center;
+}
+
+h3 {
 	color: white;
 	text-align: center;
 }
@@ -18,14 +23,15 @@ html, body{
 }
 
 body { 
-    background-color: lightblue;
+   
 	background-position: center center;
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
 	background-size:  cover;
 	background-color: #000000;  
-	color:white;
 }
+
+
 
 body{
 	margin: 0;
@@ -36,15 +42,38 @@ body{
 
 
 .jumbotron img {
-	float: left;
 	width: 100px;
 	height: 100px;
-	background: #555;
-	position: relative;
+	display:block;
+    margin-left:auto;
+    margin-right:auto;
+
   }
   
-
+.header h1 {
+	position: relative;
+	top: 18px;
+	left: 10px;
+  }
 
 .footer {
 	text-align: center;
+}
+
+jumbotron {
+	background-color : #222 !important ;
+
+}
+
+.btn {
+	background-color: rgb(84, 173, 32);
+	border: none;
+}
+
+form {
+	color: rgb(84, 173, 32);
+}
+
+.nav-link {
+	color: rgb(84, 173, 32);	
 }
