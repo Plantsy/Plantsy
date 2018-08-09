@@ -10,7 +10,6 @@ var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
 
-//cors stuff to enable it
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -28,3 +27,4 @@ db.sequelize.sync({ force: true }).then(function() {
 		console.log("App listening on PORT " + PORT);
 	});
 });
+
