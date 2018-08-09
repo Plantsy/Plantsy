@@ -86,8 +86,10 @@ $(document).ready(function() {
 // 	createQr(plantArray);
 
 // });
+
+
 function createQr(plantArrayData) {
-    var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl= " + plantArrayData + "";
+    var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=www.coolnusery.com/api/" + plantArrayData + "";
 	// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
 	$('#qRCodeImg').attr("src", queryURL);
 
@@ -171,7 +173,8 @@ function createQr(plantArrayData) {
 		var plant = {
 			name: "Rose",
 			description: "A very beautiful flower",
-			instructions: "Water it, or else it will die"
+			instructions: "Water it, or else it will die",
+			category: "Flowers"
 		};
 
 		addPlant(plant);
