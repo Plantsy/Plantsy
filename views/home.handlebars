@@ -1,29 +1,47 @@
 <form>
   <div class="form-group">
-    <label for="SearchFlower">Search</label>
+    <label for="SearchFlower">Search by Flora Type</label>
     <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora">
-    <button id="QR" type="submit">Generate QR code</button>
+    <label for="SearchFlower">Search by Scientific Name</label>
+    <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora">
   </div>
 </form>
-<img id="qRCodeImg" src="" alt="">
 
+    <button type="button" class="btn btn-primary" id="QR" type="submit">Generate QR code</button>
+    <img id="qRCodeImg" src="" alt="">
 
 
 <div class="row"></div>  
+
+
   <ul class="nav flex-column">
+
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
 	  <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-	  </div>
-	</li>
+    
+      <button type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">Large modal</button>
 
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
+	  </div>
+	  </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+	  <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Tree</a>
+      <a class="dropdown-item" href="#">Flower</a>
+    </div>
   </ul>
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <hr>
+      <hr>
+      <h1>What's Up!</h1>
+      <hr>
+      <hr>
+    </div>
+  </div>
+</div>
