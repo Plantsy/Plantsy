@@ -1,11 +1,11 @@
 h1 {
     text-align: center;
-    font-family: 'Merienda', cursive;
+	font-family: 'Merienda', cursive;
+	color: white;
 }
 
 h2 {
 	text-align: center;
-	color: white;
 }
 
 .btn-primary {
@@ -22,29 +22,27 @@ body {
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
 	background-size:  cover;
-	background-color: #000000;
+	background-color: #000000;  
+	color:white;
 }
 
-div, body{
+body{
 	margin: 0;
 	padding: 0;
 	font-family: exo, sans-serif;
-	color: black;
+	color: white;
 }
 
 
-.header img {
+.jumbotron img {
 	float: left;
 	width: 100px;
 	height: 100px;
 	background: #555;
+	position: relative;
   }
   
-.header h1 {
-	position: relative;
-	top: 18px;
-	left: 10px;
-  }
+
 
 .footer {
 	text-align: center;
