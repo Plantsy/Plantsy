@@ -2,21 +2,9 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/", function(req, res) {
-		db.Category.bulkCreate([
-			{name: "Flowers"},
-			{name: "Trees"},
-			{name: "Shrubs"}
-		]).then(function() {
-			db.Plant.bulkCreate([
-				{name: "Rose", description: "Good smelling flower", instructions: "Water it", category: "Flowers"},
-				{name: "Pine Tree", description: "Looks like a Christmas Tree", instructions: "Plant it out side in the ground", category: "Trees"},
-				{name: "Fern", description: "Healthy looking bush", instructions: "Don't let it die", category: "Shrubs"}
-			])
-		}).then(function() {
-			db.Category.findAll({}).then(function(categories) {
-				res.render("home", {category: categories});
-			})
-		});		
+		db.Category.findAll({}).then(function(categories) {
+			res.render("home", {category: categories});
+		})
 	});
 	
 	app.get("/plant/:id", function(req, res) {

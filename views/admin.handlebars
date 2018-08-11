@@ -1,8 +1,81 @@
-<h1>Welcome</h1>
+<form>
+  <div class="form-group col-lg">
+    <label for="SearchFlower" ><strong>Search by Flora Type</strong></label>
+    <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora"> 
+    <hr>
+    <label for="SearchFlower"><strong>Search by Scientific Name</strong></label>
+    <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora">
+  </div>
+</form>
+
+    <hr>
+    <hr>
+    <button type="button" class="btn btn-primary" id="QR" type="submit">Generate QR code</button>
+    <img id="qRCodeImg" src="" alt="">
+
+
+    <hr>
+
+
+  <ul class="nav flex-column">
+    <li class="nav-item dropdown">
+      <!-- Specific CATEGORY names autofill in here Dall--> 
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plants</a>
+	  <div class="dropdown-menu">   
+      <!-- Specific plant names autofill in here Dall--> 
+      <button type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" data-id={{id}}>{{name}}</button>
+    </div>
+	  </li>
+  </ul>
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Plant Name</h5>
+        <input type="text" class="form-control" id="Name" placeholder="Carnation">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+          <h5 class="modal-title">Categories</h5>
+            <select class="form-control" id="Categories">
+                {{#each category}}
+                  <option value="{{dataValues.name}}">{{dataValues.name}}</option>
+                {{/each}}
+            </select>
+      </div>
+
+      <div class="modal-body">
+                <h5 class="modal-title">Description</h5>
+                <textarea class="form-control" id="Description" rows="4"></textarea>
+      </div>
+      <div class="modal-body">
+                <h5 class="modal-title">Instructions</h5>
+                <textarea class="form-control" id="Instructions" rows="4"></textarea>
+      </div>
+      </div>
+      <div class="modal-footer">
+                 <button id="plantBtn" type="button" class="btn btn-primary">Add Plant</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <button type="button" class="btn btn-primary">Add Plant</button>
 <div class="hold_plants">
+ <!--this button will populate for each plant in DB and have a delete button populate for each plant name-->   
     {{#each plant}}
-    <h2 class="plant_click" data-id={{id}}>{{name}}</h2><button class="deleteBtn" data-id={{id}}>X</button>
+    <h2 class="plant_click" data-id={{id}}>{{name}}</h2>
+    <button class="btn btn-primary deleteBtn" data-id={{id}}>X</button>
     {{/each}}
 </div>
 <div class="selected"></div>
