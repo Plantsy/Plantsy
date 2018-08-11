@@ -167,6 +167,16 @@ function createQr(plantArrayData) {
 		editListener();
 	}
 
+	$("#Category").on("click", function() {
+		console.log($(this).attr("data-name"));
+		var name = $(this).attr("data-name");
+
+		var li = `<li>${name}</li>
+<li>${name}</li>`;
+
+		$(`#${name}`).append(li);
+	})
+
 	
 	$("#plantBtn").on("click", function () {
 	

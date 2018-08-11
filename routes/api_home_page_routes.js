@@ -2,20 +2,6 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/", function(req, res) {
-		res.render("home");
-	});
-	
-	app.get("/plant/:id", function(req, res) {
-		var id = parseInt(req.params.id);
-
-		db.Plant.findById(id).then(project => {
-			console.log(project.dataValues);
-			res.render("plant", project.dataValues);
-		})
-
-	});
-
-	app.get("/test", function(req, res) {
 		db.Category.bulkCreate([
 			{name: "Flowers"},
 			{name: "Trees"},
@@ -28,9 +14,18 @@ module.exports = function(app) {
 			])
 		}).then(function() {
 			db.Category.findAll({}).then(function(categories) {
-				console.log(categories);
-				res.render("test", {category: categories});
+				res.render("home", {category: categories});
 			})
 		});		
-	})
+	});
+	
+	app.get("/plant/:id", function(req, res) {
+		var id = parseInt(req.params.id);
+
+		db.Plant.findById(id).then(project => {
+			console.log(project.dataValues);
+			res.render("plant", project.dataValues);
+		})
+
+	});
 };

@@ -1,29 +1,78 @@
 <form>
-  <div class="form-group">
-    <label for="SearchFlower">Search</label>
+  <div class="form-group col-lg">
+    <label for="SearchFlower" ><strong>Search by Flora Type</strong></label>
+    <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora"> 
+    <hr>
+    <label for="SearchFlower"><strong>Search by Scientific Name</strong></label>
     <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora">
-    <button id="QR" type="submit">Generate QR code</button>
   </div>
 </form>
-<img id="qRCodeImg" src="" alt="">
+
+    <hr>
+    <hr>
+    <button type="button" class="btn btn-primary" id="QR" type="submit">Generate QR code</button>
+    <img id="qRCodeImg" src="" alt="">
 
 
+    <hr>
 
-<div class="row"></div>  
+
   <ul class="nav flex-column">
+
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
 	  <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
+    {{#each category}}
+      <button type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">{{dataValues.name}}</button>
+    {{/each}}
 	  </div>
-	</li>
+	  </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+	  <div class="dropdown-menu">
+      <button type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">Roses</button>
 
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
+    </div>
   </ul>
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Plant Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+          <h5 class="modal-title">Categories</h5>
+            <select class="form-control" id="Categories">
+                {{#each category}}
+                  <option value="{{dataValues.name}}">{{dataValues.name}}</option>
+                {{/each}}
+            </select>
+      </div>
+
+      <div class="modal-body">
+                <h5 class="modal-title">Description</h5>
+                <textarea class="form-control" id="Description" rows="4"></textarea>
+      </div>
+      <div class="modal-body">
+                <h5 class="modal-title">Instructions</h5>
+                <textarea class="form-control" id="Instructions" rows="4"></textarea>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Add Item</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
