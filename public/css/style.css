@@ -79,11 +79,11 @@ form {
 
 
 h5 {
-	color: black;
+	color: #181818;
 }
 
 p {
-	color: black;
+	color: white;
 }
 
 .footer p {
@@ -91,14 +91,25 @@ p {
 }
 
 .dropdown-menu.show {
-	background-color: #181818;
-	border-color: #181818;
+	background-color: #white;
+	border-color: #white;
 }
 
 .nav-link {
 	color: rgb(84, 173, 32);
 }
 
+#navbar-brand {
+	font-family: 'Merienda', cursive;
+	color: rgb(84, 173, 32);
+	font-size: 20px;
+}
+
+
 .form-control {
 	width: 400px;
+}
+
+.wrapper {
+    text-align: center;
 }
