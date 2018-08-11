@@ -1,6 +1,5 @@
-
 // ajax call to POST new_plant. send it so i can get it via req.body
-$(document).ready(function() {
+$(document).ready(function () {
 	function searchPlant(plantName) {
 		console.log("running", plantName);
 		var queryURL = `https://plantsdb.xyz/search?limit=1&Common_name=${plantName}`;
@@ -81,30 +80,30 @@ $(document).ready(function() {
 
 
 
-// $("#QR").on("click", function (event) {
-// 	event.preventDefault();
-// 	createQr(plantArray);
-
-// });
-
-
-function createQr(plantArrayData) {
-    var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=www.coolnusery.com/api/" + plantArrayData + "";
-	// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
-	$('#qRCodeImg').attr("src", queryURL);
-
-	// $.ajax({
-
-	// 	url: queryURL,
-	// 	method: "GET",
-
-	// }).then(function (response) {
-	// 	console.log(response);
-	// 	// var buf = new Buffer(response, 'base64');
-	// 	// console.log(buf);
+	// $("#QR").on("click", function (event) {
+	// 	event.preventDefault();
+	// 	createQr(plantArray);
 
 	// });
-}
+
+
+	function createQr(plantArrayData) {
+		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=" + plantArrayData + "";
+		// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
+		$('#qRCodeImg').attr("src", queryURL);
+
+		// $.ajax({
+
+		// 	url: queryURL,
+		// 	method: "GET",
+
+		// }).then(function (response) {
+		// 	console.log(response);
+		// 	// var buf = new Buffer(response, 'base64');
+		// 	// console.log(buf);
+
+		// });
+	}
 
 	function deletePlant(id) {
 
@@ -112,13 +111,13 @@ function createQr(plantArrayData) {
 			url: "/admin/delete/" + id,
 			method: "DELETE",
 		}).then(function () {
-			
+
 			location.reload();
 		});
 	};
 
 	function editPlant(id, plant_edit) {
-		
+
 		$.ajax({
 			url: "/admin/edit/" + id,
 			type: "PUT",
@@ -129,9 +128,9 @@ function createQr(plantArrayData) {
 
 
 	function addPlant(plant) {
-		
+
 		$.post("/admin/plant/create", plant, function (reply) {
-			
+
 			var plant_added = `<h2 class="plant_click" data-id=${reply.id}>${reply.name}</h2><button class="deleteBtn" data-id=${reply.id}>X</button>`;
 			$(".hold_plants").append(plant_added);
 			plantListener();
@@ -142,11 +141,11 @@ function createQr(plantArrayData) {
 		$(".selected .editBtn").on("click", function () {
 			var plant_clicked = $(this);
 			var id = parseInt(plant_clicked.attr("data-id"));
-		
+
 			var plant_edit = {
-				name: "Lily",
-				description: "Either a flower or sometimes a person!",
-				instructions: "This needs to sit in Water"
+				name: $("#Name"),
+				description: $("#Description"),
+				instructions: $("#Instructions")
 			};
 
 			editPlant(id, plant_edit);
@@ -162,12 +161,12 @@ function createQr(plantArrayData) {
 <p>${plant.description}<p>
 <p>${plant.instructions}<p>`
 
-		
+
 		$(".selected").append(selected);
 		editListener();
 	}
 
-	$("#Category").on("click", function() {
+	$("#Category").on("click", function () {
 		console.log($(this).attr("data-name"));
 		var name = $(this).attr("data-name");
 
@@ -177,21 +176,20 @@ function createQr(plantArrayData) {
 		$(`#${name}`).append(li);
 	})
 
-	
+
 	$("#plantBtn").on("click", function () {
-	
+
 		var plant = {
-			name: "Rose",
-			description: "A very beautiful flower",
-			instructions: "Water it, or else it will die",
-			category: "Flowers"
+			name: $("#Name").val(),
+			description: $("#Description").val(),
+			instructions: $("#Instructions").val()
 		};
 
 		addPlant(plant);
 	});
 
 	$(".hold_plants .deleteBtn").on("click", function () {
-		
+
 		var id = parseInt($(this).attr("data-id"));
 
 		deletePlant(id);
@@ -199,14 +197,14 @@ function createQr(plantArrayData) {
 
 	function plantListener() {
 		$(".hold_plants .plant_click").on("click", function () {
-	
+
 			var id = parseInt($(this).attr("data-id"));
-	
+
 			$.get("/admin/plant/" + id).then(function (plant) {
 				displayPlant(plant);
 			});
 		});
 	}
-	
+
 	plantListener();
 });
