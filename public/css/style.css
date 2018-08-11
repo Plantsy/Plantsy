@@ -1,3 +1,4 @@
+
 h1 {
     text-align: center;
 	font-family: 'Merienda', cursive;
@@ -28,7 +29,7 @@ body {
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
 	background-size:  cover;
-	background-color: #000000;  
+	background-color: #181818;  
 }
 
 
@@ -58,10 +59,11 @@ body{
 
 .footer {
 	text-align: center;
+	border-color: #181818;
 }
 
-jumbotron {
-	background-color : #222 !important ;
+.jumbotron {
+	background-color : #181818 !important ;
 
 }
 
@@ -74,6 +76,29 @@ form {
 	color: rgb(84, 173, 32);
 }
 
+
+
+h5 {
+	color: black;
+}
+
+p {
+	color: black;
+}
+
+.footer p {
+	color: rgb(84, 173, 32);
+}
+
+.dropdown-menu.show {
+	background-color: #181818;
+	border-color: #181818;
+}
+
 .nav-link {
-	color: rgb(84, 173, 32);	
+	color: rgb(84, 173, 32);
+}
+
+.form-control {
+	width: 400px;
 }
