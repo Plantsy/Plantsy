@@ -23,22 +23,16 @@ module.exports = function (sequelize, DataTypes) {
 				len: [1]
 			}
 		},
-		category: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				len: [1]
-			}
-		}
+		category: DataTypes.STRING
 	});
 
 	Plant.associate = function(models) {
 		// Associating Author with Posts
 		// When an Author is deleted, also delete any associated Posts
-		Plant.hasMany(models.Plant, {
-			onDelete: "cascade",
-			foreignKey: "name",
-			targetKey: "category"
+		Plant.belongsTo(models.Category, {
+			foreignKey: {
+				allowNull: false
+			}
 		});
 	};
 	return Plant;

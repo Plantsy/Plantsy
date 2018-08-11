@@ -17,8 +17,6 @@ module.exports = function (sequelize, DataTypes) {
 		// When an Author is deleted, also delete any associated Posts
 		Category.hasMany(models.Plant, {
 			onDelete: "cascade",
-			foreignKey: "name",
-			sourceKey: "category"
 		});
 	};
     
