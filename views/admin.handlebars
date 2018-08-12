@@ -1,84 +1,169 @@
-<form>
-  <div class="form-group col-lg">
-    <label for="SearchFlower" ><strong>Search by Flora Type</strong></label>
-    <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora"> 
-    <hr>
-    <label for="SearchFlower"><strong>Search by Scientific Name</strong></label>
-    <input type="search" class="form-control" id="SearchFlower" placeholder="Search Your Flora">
-  </div>
-</form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a style="margin: 0 20px" id="navbar-brand" href="/">Plantsy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <hr>
-    <hr>
-    <button type="button" class="btn btn-primary" id="QR" type="submit">Generate QR code</button>
-    <img id="qRCodeImg" src="" alt="">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navUnique" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Plants
+                </a>
+                <!--List of plants here-->
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Rose</a>
+                    <a class="dropdown-item" href="#">Tree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Contact Us</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <button style="margin: 0 10px" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">Add Plant</button>
+
+        </form>
+        </div>
+</nav>
 
 
-    <hr>
-
-
-  <ul class="nav flex-column">
-    <li class="nav-item dropdown">
-      <!-- Specific CATEGORY names autofill in here Dall--> 
-      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plants</a>
-	  <div class="dropdown-menu">   
-      <!-- Specific plant names autofill in here Dall--> 
-      <button type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" data-id={{id}}>{{name}}</button>
+    <div class="jumbotron">
+        <div class="container-fluid">
+          <img src="assets/plantsy.png" alt="logo"/>
+            <h1> Plantsy</h1>
+        </div>
     </div>
-	  </li>
-  </ul>
+    
+<hr>
+    <button style="margin: 0 1000px" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-editmodal-lg" href="#">Edit Plant</button>
+<hr>
 
+    <h4 style="padding: 0 100px"><strong>Description</strong></h4>
+        <hr>
+        <p style="padding: 0 100px">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                   tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                   semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
+                   pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
+                   elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non
+                   enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque
+                   egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
+                   porttitor, facilisis luctus, metus
+        </p>
 
+        <hr>
+        <hr>
+        <hr>
+
+    <h4 style="padding: 0 100px"><strong>Instructions</strong></h4>
+        <hr>
+        <p style="padding: 0 100px">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                   tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                   semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
+                   pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
+                   elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non
+                   enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque
+                   egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
+                   porttitor, facilisis luctus, metus
+        </p>
+
+        <hr>
+        <hr>
+        <hr>
+
+        <div class = "wrapper">
+            <img src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" id="qRCodeImg" alt="QR Code" height="200" width="200">
+        </div>
+
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+
+        <div class = "wrapper">
+            <button type="button" class="btn btn-primary" onclick="printImg">QR Print</button>
+        </div>  
+
+          <hr>
+          <hr>
+          <hr>
 
 <!-- Large modal -->
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Plant Name</h5>
-        <input type="text" class="form-control" id="Name" placeholder="Carnation">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      
-      <div class="modal-body">
-          <h5 class="modal-title">Categories</h5>
-            <select class="form-control" id="Categories">
-                {{#each category}}
-                  <option value="{{dataValues.name}}">{{dataValues.name}}</option>
-                {{/each}}
-            </select>
-      </div>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
+                <input type="text" class="form-control" id="Name" placeholder="Carnation">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-      <div class="modal-body">
+            <div class="modal-body">
+                <h5 class="modal-title">Categories</h5>
+                <select class="form-control" id="Categories">
+                    {{#each category}}
+                    <option value="{{dataValues.name}}">{{dataValues.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="modal-body">
                 <h5 class="modal-title">Description</h5>
                 <textarea class="form-control" id="Description" rows="4"></textarea>
-      </div>
-      <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <h5 class="modal-title">Instructions</h5>
                 <textarea class="form-control" id="Instructions" rows="4"></textarea>
-      </div>
-      </div>
-      <div class="modal-footer">
-                 <button id="plantBtn" type="button" class="btn btn-primary">Add Plant</button>
-      </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="plantBtn" type="button" class="btn btn-primary">Add Plant</button>
+        </div>
     </div>
-  </div>
+</div>
 </div>
 
 
+<!-- Edit Large modal -->
 
-<button type="button" class="btn btn-primary">Add Plant</button>
-<div class="hold_plants">
- <!--this button will populate for each plant in DB and have a delete button populate for each plant name-->   
-    {{#each plant}}
-    <h2 class="plant_click" data-id={{id}}>{{name}}</h2>
-    <button class="btn btn-primary deleteBtn" data-id={{id}}>X</button>
-    {{/each}}
+<div class="modal fade bd-example-editmodal-lg" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
+                <input type="text" class="form-control" id="Name" placeholder="Carnation">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <h5 class="modal-title">Categories</h5>
+                <select class="form-control" id="Categories">
+                    {{#each category}}
+                    <option value="{{dataValues.name}}">{{dataValues.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="modal-body">
+                <h5 class="modal-title">Description</h5>
+                <textarea class="form-control" id="Description" rows="4"></textarea>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Instructions</h5>
+                <textarea class="form-control" id="Instructions" rows="4"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="editBtn" type="button" class="btn btn-primary">Edit Plant</button>
+        </div>
+    </div>
 </div>
-<div class="selected"></div>
-
-{{!-- If you want, you can put a form here. Name, Description, Instructions. give them each an id --}} {{!-- id="Name", id="Discription",
-id="Instructions"--}}
+</div>
