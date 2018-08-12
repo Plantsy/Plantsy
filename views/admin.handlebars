@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a id="navbar-brand" href="#">Plantsy</a>
+    <a style="margin: 0 20px" id="navbar-brand" href="/">Plantsy</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                <a class="nav-link dropdown-toggle" id="navUnique" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     Plants
                 </a>
@@ -39,10 +39,7 @@
     </div>
     
 <hr>
-
-    <button style="margin: 0 10px" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-editmodal-lg" href="#">Edit Plant</button>
-
-
+    <button style="margin: 0 1000px" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-editmodal-lg" href="#">Edit Plant</button>
 <hr>
 
     <h4 style="padding: 0 100px"><strong>Description</strong></h4>
@@ -78,7 +75,7 @@
         <hr>
 
         <div class = "wrapper">
-            <img id="qRCodeImg" alt="QR Code" height="42" width="42">
+            <img src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" id="qRCodeImg" alt="QR Code" height="200" width="200">
         </div>
 
         <hr>
@@ -90,13 +87,17 @@
             <button type="button" class="btn btn-primary" onclick="printImg">QR Print</button>
         </div>  
 
+          <hr>
+          <hr>
+          <hr>
+
 <!-- Large modal -->
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Plant Name</h5>
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
                 <input type="text" class="form-control" id="Name" placeholder="Carnation">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -135,7 +136,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Plant Name</h5>
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
                 <input type="text" class="form-control" id="Name" placeholder="Carnation">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
