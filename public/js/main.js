@@ -10,7 +10,7 @@ $(document).ready(function () {
 			method: "GET"
 
 		}).then(function (response) {
-
+			
 			for (i = 0; i < response.data.length; i++) {
 				var Accepted_Symbol_x, Category, Class, Common_Name, Division, Drought_Tolerance, Duration, Family, Family_Common_Name, Family_Symbol, Fire_Resistance, Fire_Tolerance, Flower_Color, Fodder_Product, Frost_Free_Days_Minimum, Fruit_Color, Fruit_Conspicuous, Fruit_Seed_Abundance, Fruit_Seed_Period_Begin, Fruit_Seed_Period_End, Fruit_Seed_Persistence, Genus, Invasive, Kingdom, Lifespan, Moisture_Use, Nitrogen_Fixation, Scientific_Name_x, Scientific_Name_y, Seed_Spread_Rate, Seeds_per_Pound, Shade_Tolerance, Species, State_and_Province, SubClass, plantSymbol, Temperature_Minimum_F, id, xOrder, Subclass
 
