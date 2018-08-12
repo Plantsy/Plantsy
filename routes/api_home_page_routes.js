@@ -2,9 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/", function(req, res) {
-		db.Category.findAll({}).then(function(categories) {
-			res.render("home", {category: categories});
-		})
+		res.render("home");
 	});
 	
 	app.get("/plant/:id", function(req, res) {
