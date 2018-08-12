@@ -18,7 +18,7 @@ h3 {
 }
 
 h5 {
-	color: #181818;
+	color: white;
 }
 
 
@@ -81,6 +81,15 @@ form {
 	color: rgb(84, 173, 32);
 }
 
+/*close button on modals*/
+.close {
+color: white;
+}
+
+.close:hover {
+    background-color: white;
+    color: white;
+}
 
 
 
@@ -162,4 +171,9 @@ nav {
 /* Instagram */
 .fa-instagram {
 	color: rgb(84, 173, 32);
+}
+
+.modal-content {
+	color: white;
+	background-color: #181818;
 }
