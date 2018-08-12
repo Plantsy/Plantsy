@@ -2,7 +2,9 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/", function(req, res) {
-		res.render("home");
+		db.Plant.findAll({}).then(function (plant) {
+			res.render("home", { plant: plant });
+		});
 	});
 	
 	app.get("/plant/:id", function(req, res) {

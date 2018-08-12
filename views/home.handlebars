@@ -14,8 +14,9 @@
                 </a>
                 <!--List of plants here-->
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Rose</a>
-                    <a class="dropdown-item" href="#">Tree</a>
+                    {{#each plant}}
+                    <a class="plant_click dropdown-item" data-id={{id}} href="#">{{name}}</a>
+                    {{/each}}
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Contact Us</a>
