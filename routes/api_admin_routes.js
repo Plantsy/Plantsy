@@ -4,7 +4,11 @@ module.exports = function (app) {
 	app.get("/admin", function (req, res) {
 
 		db.Plant.findAll({}).then(function (plant) {
-			res.render("admin", { plant: plant });
+			if(plant[0]) {
+				res.render("admin", { plant: plant, headPlant: plant[0].dataValues});
+			} else {
+				res.render("admin", { plant: plant});
+			}
 		});
 	});
 
