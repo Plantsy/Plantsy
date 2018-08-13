@@ -151,7 +151,6 @@ $(document).ready(function () {
 			url: "/admin/edit/" + id,
 			type: "PUT",
 			data: plant_edit
-<<<<<<< HEAD
 		}).then(function() {
 			location.reload();
 		});
@@ -171,9 +170,7 @@ $(document).ready(function () {
 			description: $("#Description").val(),
 			instructions: $("#Instructions").val()
 		};
-=======
-		})
->>>>>>> 31b241d87d87733c01c5ecf68f0a79ae4992dbbe
+	
 
 		$(`a[data-id=${id}]`).text($("#editName").val());
 		$("#display_name").text($("#editName").val());
@@ -203,11 +200,8 @@ $(document).ready(function () {
 		$("#deleteBtn").attr("data-id", plant.id);
 
 		createQr(plant.id);
-<<<<<<< HEAD
 		editListener();
 		
-=======
->>>>>>> 31b241d87d87733c01c5ecf68f0a79ae4992dbbe
 	}
 
 	function clearDisplay() {
