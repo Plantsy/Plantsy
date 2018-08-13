@@ -60,7 +60,7 @@ $(document).ready(function () {
 				//    console.log (id + " " + Class);
 				//    console.log(Accepted_Symbol_x+"  "+ Category+"  "+Class + "" + Division+ ""+Family);
 				plantArray.push("Common Name: "+ Common_Name+ "Genus: "+ Genus+ "Kingdom: "+ Kingdom+ "Lifespan: "+ Lifespan+ " Scientific Name: "+ Scientific_Name_x+ "Species:  "+ Species+ "State and Province: "+ State_and_Province+ "Class: "+ Class+ " Category: "+ Category+ "Division: "+ Division+ "Family: "+ Family+ "ID: "+ id+ " ");
-				console.log("qr info  " + plantArray);
+				
 				$("#searchPInfo").append(plantArray);
 			}
 			
@@ -75,7 +75,7 @@ $(document).ready(function () {
 		searchPlant(plant);
 		
 		 
-		console.log(plantArray)
+		
 	});
 
 
@@ -98,10 +98,10 @@ $(document).ready(function () {
 			 method: "GET",
 		
 			}).then(function (response) {
-				console.log("qr"+response);
+				
 			// 	// var buf = new Buffer(response, 'base64');
 			// 	// console.log(buf);
-			console.log(queryURL);
+			
 			$('#QRimg').attr("src", queryURL);
 			// });
 		})
@@ -182,7 +182,7 @@ $(document).ready(function () {
 
 		createQr(plant.id);
 		editListener();
-		console.log(createQr(plant.id));
+		
 	}
 
 	$("#deleteBtn").on("click", function () {
