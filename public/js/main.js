@@ -1,8 +1,8 @@
-// ajax call to POST new_plant. send it so i can get it via req.body
 $(document).ready(function () {
 	function searchPlant(plantName) {
 		console.log("running", plantName);
 		var queryURL = `https://plantsdb.xyz/search?limit=1&Common_name=${plantName}`;
+		
 		var plantArray = [];
 
 		$.ajax({
@@ -59,28 +59,30 @@ $(document).ready(function () {
 				//    console.log(Genus+" " + Invasive +" "+  Kingdom + " " +Lifespan + "  " +Moisture_Use + " " + Scientific_Name_x + " "+ Species + " " + State_and_Province +" "+ Subclass + " "+ plantSymbol + " " +Accepted_Symbol_x + " " + Class + " " + Common_Name + " " +Category + ""+ Class + "" + Division+ ""+Family );
 				//    console.log (id + " " + Class);
 				//    console.log(Accepted_Symbol_x+"  "+ Category+"  "+Class + "" + Division+ ""+Family);
-				plantArray.push("Common Name: ", Common_Name, "Genus: ", Genus, "Kingdom: ", Kingdom, "Lifespan: ", Lifespan, " Scientific Name: ", Scientific_Name_x, "Species:  ", Species, "State and Province: ", State_and_Province, "Class: ", Class, " Category: ", Category, "Division: ", Division, "Family: ", Family, "ID: ", id, " ");
+				plantArray.push("Common Name: "+ Common_Name+ "Genus: "+ Genus+ "Kingdom: "+ Kingdom+ "Lifespan: "+ Lifespan+ " Scientific Name: "+ Scientific_Name_x+ "Species:  "+ Species+ "State and Province: "+ State_and_Province+ "Class: "+ Class+ " Category: "+ Category+ "Division: "+ Division+ "Family: "+ Family+ "ID: "+ id+ " ");
 				console.log("qr info  " + plantArray);
+				$("#searchPInfo").append(plantArray);
 			}
-			createQr(plantArray);
+			
 		});
 	}
 
-	//search button function to fire when clicked
-	$("#QR").on("click", function () {
+	$("#searchPlantDB").on("click", function(){
 		event.preventDefault();
-		// reseting plantArray each time search is clicked
-		plantArray = [];
-		//storing searched plant in variable to throw into searchPlant function
-		var plant = $("#SearchFlower").val().trim();
-		searchPlant(plant);
 
+		plantArray = [];
+		var plant = $("#searchP").val().trim();
+		searchPlant(plant);
+		
+		 $("#searchPInfo").append("<p>"+plantArray+"</p>");
+		console.log(plantArray)
 	});
 
 
 
 
-	// $("#QR").on("click", function (event) {
+
+	// $("#QR").on("click"+ function (event) {
 	// 	event.preventDefault();
 	// 	createQr(plantArray);
 
@@ -90,7 +92,20 @@ $(document).ready(function () {
 	function createQr(id) {
 		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://localhost:8080/plant/" + id;
 		// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
-		$('#QRimg').attr("src", queryURL);
+		$.ajax({
+
+			url: queryURL,
+			 method: "GET",
+		
+			}).then(function (response) {
+				console.log("qr"+response);
+			// 	// var buf = new Buffer(response, 'base64');
+			// 	// console.log(buf);
+			console.log(queryURL);
+			$('#QRimg').attr("src", queryURL);
+			// });
+		})
+		
 	}
 
 
@@ -117,7 +132,9 @@ $(document).ready(function () {
 	}
 
 	$("#addBtn").on("click", function() {
+		
 		addPlant();
+		
 	})
 
 	function addPlant() {
@@ -165,6 +182,7 @@ $(document).ready(function () {
 
 		createQr(plant.id);
 		editListener();
+		console.log(createQr(plant.id));
 	}
 
 	$("#deleteBtn").on("click", function () {

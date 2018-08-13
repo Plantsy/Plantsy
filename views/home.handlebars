@@ -26,8 +26,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" id="searchP" aria-label="Search">
+            <button id="searchPlantDB" class="btn btn-primary" type="submit">Search</button>
             
         </form>
         </div>
@@ -54,14 +54,7 @@
 
     <h4 style="padding: 0 100px"><strong>Description</strong></h4>
         <hr>
-        <p style="padding: 0 100px">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
-                   tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
-                   semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-                   pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
-                   elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non
-                   enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque
-                   egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
-                   porttitor, facilisis luctus, metus
+        <p id="searchPInfo" style="padding: 0 100px">Search plant to get information back from usda database!
         </p>
 
         <hr>
@@ -88,12 +81,10 @@
         <div class = "wrapper">
             <img id="qRCodeImg" alt="QR Code" height="42" width="42">
         </div>
-
         <hr>
         <hr>
         <hr>
         <hr>
-
         <div class = "wrapper">
             <button type="button" class="btn btn-primary" onclick="printImg">QR Print</button>
         </div>  
