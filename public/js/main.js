@@ -87,22 +87,10 @@ $(document).ready(function () {
 	// });
 
 
-	function createQr(plantArrayData) {
-		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=" + plantArrayData + "";
+	function createQr(id) {
+		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://localhost:8080/plant/" + id;
 		// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
-		$('#qRCodeImg').attr("src", queryURL);
-
-		// $.ajax({
-
-		// 	url: queryURL,
-		// 	method: "GET",
-
-		// }).then(function (response) {
-		// 	console.log(response);
-		// 	// var buf = new Buffer(response, 'base64');
-		// 	// console.log(buf);
-
-		// });
+		$('#QRimg').attr("src", queryURL);
 	}
 
 
@@ -175,6 +163,7 @@ $(document).ready(function () {
 		$("#deleteBtn").attr("data-id", plant.id);
 		$("#editBtn").attr("data-id", plant.id);
 
+		createQr(plant.id);
 		editListener();
 	}
 
