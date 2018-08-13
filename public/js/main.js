@@ -119,7 +119,7 @@ $(document).ready(function () {
 		});
 
 		$(`a[data-id=${id}]`).remove();
-		
+
 		clearDisplay();
 	};
 
@@ -148,8 +148,8 @@ $(document).ready(function () {
 
 	function clearEditText() {
 		$("#editName").val("");
-		$("#editDescription").text("");
-		$("#editInstructions").text("");
+		$("#editDescription").val("");
+		$("#editInstructions").val("");
 	};
 
 	function clearAddPlantText() {
@@ -192,8 +192,8 @@ $(document).ready(function () {
 		$.get("/admin/plant/" + id).then(function (plant) {
 			console.log(plant.name);
 			$("#editName").val(plant.name);
-			$("#editDescription").text(plant.description);
-			$("#editInstructions").text(plant.instructions);
+			$("#editDescription").val(plant.description);
+			$("#editInstructions").val(plant.instructions);
 		});
 	};
 
