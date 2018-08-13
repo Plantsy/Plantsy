@@ -112,7 +112,7 @@ $(document).ready(function () {
 	};
 
 	function deletePlant(id) {
-		console.log(id);
+		
 		$.ajax({
 			url: "/admin/delete/" + id,
 			method: "DELETE",
