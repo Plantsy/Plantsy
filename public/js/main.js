@@ -69,12 +69,12 @@ $(document).ready(function () {
 
 	$("#searchPlantDB").on("click", function(){
 		event.preventDefault();
-
+		$("#searchPInfo").empty();
 		plantArray = [];
 		var plant = $("#searchP").val().trim();
 		searchPlant(plant);
 		
-		 $("#searchPInfo").append("<p>"+plantArray+"</p>");
+		 
 		console.log(plantArray)
 	});
 
