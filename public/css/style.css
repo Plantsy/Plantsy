@@ -160,3 +160,8 @@ nav {
 .fa-instagram {
 	color: rgb(84, 173, 32);
 }
+
+#addBtn, #editBtn {
+	width: 20%;
+	margin: 5px;
+}

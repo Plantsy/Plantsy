@@ -108,6 +108,23 @@ $(document).ready(function () {
 		
 	}
 
+	function addPlant() {
+
+		var plant = {
+			name: $("#Name").val(),
+			description: $("#Description").val(),
+			instructions: $("#Instructions").val()
+		};
+
+		$.post("/admin/plant/create", plant, function (reply) {
+			// var plant_added = `<h2 class="plant_click" data-id=${reply.id}>${reply.name}</h2><button class="deleteBtn" data-id=${reply.id}>X</button>`;
+			var plant_added = `<a class="plant_click dropdown-item" data-id=${reply.id}>${reply.name}</a>`;
+			$("#Plants").append(plant_added);
+			plantListener();
+		});
+
+		clearAddPlantText();
+	};
 
 	function deletePlant(id) {
 		
@@ -117,14 +134,24 @@ $(document).ready(function () {
 		});
 
 		$(`a[data-id=${id}]`).remove();
+
+		clearDisplay();
 	};
 
-	function editPlant(id, plant_edit) {
+	function editPlant() {
+		var id = $("#deleteBtn").attr("data-id");
+
+		var plant_edit = {
+			name: $("#editName").val(),
+			description: $("#editDescription").val(),
+			instructions: $("#editInstructions").val()
+		};
 
 		$.ajax({
 			url: "/admin/edit/" + id,
 			type: "PUT",
 			data: plant_edit
+<<<<<<< HEAD
 		}).then(function() {
 			location.reload();
 		});
@@ -144,52 +171,52 @@ $(document).ready(function () {
 			description: $("#Description").val(),
 			instructions: $("#Instructions").val()
 		};
-
-		$("#Name").val("");
-		$("#Description").val(" ");
-		$("#Instructions").val(" ");
-
-		$.post("/admin/plant/create", plant, function (reply) {
-			// var plant_added = `<h2 class="plant_click" data-id=${reply.id}>${reply.name}</h2><button class="deleteBtn" data-id=${reply.id}>X</button>`;
-		var plant_added = `<a class="plant_click dropdown-item" data-id=${reply.id}>${reply.name}</a>`;
-			$("#Plants").append(plant_added);
-			plantListener();
-		});
-	}
-
-	function editListener() {
-		$(".editBtn").on("click", function () {
-			var plant_clicked = $(this);
-			var id = parseInt(plant_clicked.attr("data-id"));
-
-			var plant_edit = {
-				name: $("#editName"),
-				description: $("#editDescription"),
-				instructions: $("#editInstructions")
-			};
-
-			editPlant(id, plant_edit);
+=======
 		})
+>>>>>>> 31b241d87d87733c01c5ecf68f0a79ae4992dbbe
+
+		$(`a[data-id=${id}]`).text($("#editName").val());
+		$("#display_name").text($("#editName").val());
+		$("#display_description").text($("#editDescription").val());
+		$("#display_instructions").text($("#editInstructions").val());
+
+		clearEditText();
 	}
+
+	function clearEditText() {
+		$("#editName").val("");
+		$("#editDescription").val("");
+		$("#editInstructions").val("");
+	};
+
+	function clearAddPlantText() {
+		$("#Name").val("");
+		$("#Description").val("");
+		$("#Instructions").val("");
+	};
 
 	function displayPlant(plant) {
-		
+		console.log(plant);
 		$("#display_name").text(plant.name);
 		$("#display_description").text(plant.description);
 		$("#display_instructions").text(plant.instructions);
 		$("#deleteBtn").attr("data-id", plant.id);
-		$("#editBtn").attr("data-id", plant.id);
 
 		createQr(plant.id);
+<<<<<<< HEAD
 		editListener();
 		
+=======
+>>>>>>> 31b241d87d87733c01c5ecf68f0a79ae4992dbbe
 	}
 
-	$("#deleteBtn").on("click", function () {
-		var id = $(this).attr("data-id");
-		
-		deletePlant(id);
-	});
+	function clearDisplay() {
+		$("#display_name").text(" ");
+		$("#display_description").text(" ");
+		$("#display_instructions").text(" ");
+		$("#deleteBtn").attr("data-id", 0);
+		$("#editBtn").attr("data-id", 0);
+	}
 
 	function plantListener() {
 		$("#Plants .plant_click").on("click", function () {
@@ -200,6 +227,35 @@ $(document).ready(function () {
 				displayPlant(plant);
 			});
 		});
-	}
+	};
+
+	function populateEditModal() {
+		var id = $("#deleteBtn").attr("data-id");
+		$.get("/admin/plant/" + id).then(function (plant) {
+			console.log(plant.name);
+			$("#editName").val(plant.name);
+			$("#editDescription").val(plant.description);
+			$("#editInstructions").val(plant.instructions);
+		});
+	};
+
+	$("#addBtn").on("click", function () {
+		addPlant();
+	})
+
+	$("#deleteBtn").on("click", function () {
+		var id = $(this).attr("data-id");
+		deletePlant(id);
+	});
+
+	$("#editModel").on("click", function () {
+		populateEditModal();
+	});
+
+	$("#editBtn").on("click", function () {
+		editPlant();
+	})
+
+
 	plantListener();
 });
