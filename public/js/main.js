@@ -87,33 +87,21 @@ $(document).ready(function () {
 	// });
 
 
-	function createQr(plantArrayData) {
-		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=" + plantArrayData + "";
+	function createQr(id) {
+		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://localhost:8080/plant/" + id;
 		// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
-		$('#qRCodeImg').attr("src", queryURL);
-
-		// $.ajax({
-
-		// 	url: queryURL,
-		// 	method: "GET",
-
-		// }).then(function (response) {
-		// 	console.log(response);
-		// 	// var buf = new Buffer(response, 'base64');
-		// 	// console.log(buf);
-
-		// });
+		$('#QRimg').attr("src", queryURL);
 	}
 
-	function deletePlant(id) {
 
+	function deletePlant(id) {
+		
 		$.ajax({
 			url: "/admin/delete/" + id,
 			method: "DELETE",
-		}).then(function () {
-
-			location.reload();
 		});
+
+		$(`a[data-id=${id}]`).remove();
 	};
 
 	function editPlant(id, plant_edit) {
@@ -122,30 +110,45 @@ $(document).ready(function () {
 			url: "/admin/edit/" + id,
 			type: "PUT",
 			data: plant_edit
+		}).then(function() {
+			location.reload();
 		});
-		location.reload();
+		
 	}
 
+	$("#addBtn").on("click", function() {
+		addPlant();
+	})
 
-	function addPlant(plant) {
+	function addPlant() {
+		
+		var plant = {
+			name: $("#Name").val(),
+			description: $("#Description").val(),
+			instructions: $("#Instructions").val()
+		};
+
+		$("#Name").val("");
+		$("#Description").val(" ");
+		$("#Instructions").val(" ");
 
 		$.post("/admin/plant/create", plant, function (reply) {
-
-			var plant_added = `<h2 class="plant_click" data-id=${reply.id}>${reply.name}</h2><button class="deleteBtn" data-id=${reply.id}>X</button>`;
-			$(".hold_plants").append(plant_added);
+			// var plant_added = `<h2 class="plant_click" data-id=${reply.id}>${reply.name}</h2><button class="deleteBtn" data-id=${reply.id}>X</button>`;
+		var plant_added = `<a class="plant_click dropdown-item" data-id=${reply.id}>${reply.name}</a>`;
+			$("#Plants").append(plant_added);
 			plantListener();
 		});
 	}
 
 	function editListener() {
-		$(".selected .editBtn").on("click", function () {
+		$(".editBtn").on("click", function () {
 			var plant_clicked = $(this);
 			var id = parseInt(plant_clicked.attr("data-id"));
 
 			var plant_edit = {
-				name: $("#Name"),
-				description: $("#Description"),
-				instructions: $("#Instructions")
+				name: $("#editName"),
+				description: $("#editDescription"),
+				instructions: $("#editInstructions")
 			};
 
 			editPlant(id, plant_edit);
@@ -153,50 +156,25 @@ $(document).ready(function () {
 	}
 
 	function displayPlant(plant) {
-		$(".selected").empty();
+		
+		$("#display_name").text(plant.name);
+		$("#display_description").text(plant.description);
+		$("#display_instructions").text(plant.instructions);
+		$("#deleteBtn").attr("data-id", plant.id);
+		$("#editBtn").attr("data-id", plant.id);
 
-		var selected = `
-<button class="editBtn" data-id=${plant.id}>Edit<button>
-<h1>${plant.name}</h1>
-<p>${plant.description}<p>
-<p>${plant.instructions}<p>`
-
-
-		$(".selected").append(selected);
+		createQr(plant.id);
 		editListener();
 	}
 
-	$("#Category").on("click", function () {
-		console.log($(this).attr("data-name"));
-		var name = $(this).attr("data-name");
-
-		var li = `<li>${name}</li>
-<li>${name}</li>`;
-
-		$(`#${name}`).append(li);
-	})
-
-
-	$("#plantBtn").on("click", function () {
-
-		var plant = {
-			name: $("#Name").val(),
-			description: $("#Description").val(),
-			instructions: $("#Instructions").val()
-		};
-
-		addPlant(plant);
-	});
-
-	$(".hold_plants .deleteBtn").on("click", function () {
-
-		var id = parseInt($(this).attr("data-id"));
-
+	$("#deleteBtn").on("click", function () {
+		var id = $(this).attr("data-id");
+		
 		deletePlant(id);
 	});
 
 	function plantListener() {
-		$(".hold_plants .plant_click").on("click", function () {
+		$("#Plants .plant_click").on("click", function () {
 
 			var id = parseInt($(this).attr("data-id"));
 
@@ -205,6 +183,5 @@ $(document).ready(function () {
 			});
 		});
 	}
-
 	plantListener();
 });
