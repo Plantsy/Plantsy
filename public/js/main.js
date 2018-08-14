@@ -88,7 +88,7 @@ $(document).ready(function () {
 
 
 	function createQr(id) {
-		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://localhost:8080/plant/" + id;
+		var queryURL = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://immense-plateau-41753.herokuapp.com/plant/" + id;
 		// var queryURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example";
 		$('#QRimg').attr("src", queryURL);
 	}
@@ -112,7 +112,7 @@ $(document).ready(function () {
 	};
 
 	function deletePlant(id) {
-		
+
 		$.ajax({
 			url: "/admin/delete/" + id,
 			method: "DELETE",
