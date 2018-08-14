@@ -13,11 +13,18 @@
                     Plants
                 </a>
                 <!--List of plants here-->
+
                 <div id="Plants" class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {{#each plant}}
                     <a class="plant_click dropdown-item" data-id={{id}} href="#">{{name}}</a>
                     {{/each}}
             </li>
+     
+               <li class="nav-item">
+                <a class="nav-link" id="navUnique" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="navUnique" href="#">F.A.Q</a>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -35,6 +42,9 @@
         <img src="assets/plantsy.png" alt="logo" />
         <h1> Plantsy Admin</h1>
     </div>
+    
+
+
 </div>
 
 <hr>
@@ -94,8 +104,10 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Plant Name</h5>
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
                 <input type="text" class="form-control" id="Name">
+                    <button style="margin: 0 20px" type="button" class="btn btn-primary" onclick="uploadImg">Upload Image</button>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -128,8 +140,11 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Plant Name</h5>
+        
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
                 <input type="text" class="form-control" id="editName">
+                                <button style="margin: 0 20px" type="button" class="btn btn-primary" onclick="uploadImg">Upload Image</button>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
