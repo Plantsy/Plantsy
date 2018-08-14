@@ -12,15 +12,16 @@
                     aria-expanded="false">
                     Plants
                 </a>
-                <!--List of plants here--
- 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Login</a>
-
                 <div id="Plants" class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {{#each plant}}
                     <a class="plant_click dropdown-item" data-id={{id}} href="#">{{name}}</a>
                     {{/each}}
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Login</a>
+
+                
 
             </li>
             
@@ -59,14 +60,14 @@
 <hr>
 
 
-    <!--
-      <div class = "wrapper">
+ 
+      {{!-- <div class = "wrapper">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">Add Plant</button>
       </div>
-    -->
+   
       <div class = "wrapper">
           <img src="https://i.pinimg.com/originals/c2/9c/94/c29c94214bafbc1c2fcc0e458982f762.jpg" id="flowerImg" alt="QR Code" height="200" width="200">
-      </div>
+      </div> --}}
 
 <p id="display_description" style="padding: 0 100px">{{headPlant.description}}</p>
 
