@@ -4,7 +4,11 @@ module.exports = function (app) {
 	app.get("/admin", function (req, res) {
 
 		db.Plant.findAll({}).then(function (plant) {
-			res.render("admin", { plant: plant });
+			if(plant[0]) {
+				res.render("admin", { plant: plant, headPlant: plant[0].dataValues});
+			} else {
+				res.render("admin", { plant: plant});
+			}
 		});
 	});
 
@@ -20,7 +24,6 @@ module.exports = function (app) {
 	});
 
 	app.post("/admin/plant/create", function (req, res) {
-
 		db.Plant.create(req.body).then(function (data) {
 			res.json(data);
 		});
@@ -29,11 +32,8 @@ module.exports = function (app) {
 	app.delete("/admin/delete/:id", function (req, res) {
 		db.Plant.destroy({
 			where: {
-				id: req.params.id
+				id: parseInt(req.params.id)
 			}
-		}).then(function (data) {
-
-			res.json(data);
 		});
 	});
 

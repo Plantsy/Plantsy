@@ -21,8 +21,6 @@ h5 {
 	color: white;
 }
 
-
-
 html, body{
 	height: 100%;
 }
@@ -179,7 +177,14 @@ nav {
 	color: rgb(84, 173, 32);
 }
 
+
 .modal-content {
 	color: white;
 	background-color: #181818;
 }
+
+#addBtn, #editBtn {
+	width: 20%;
+	margin: 5px;
+}
+
